@@ -1,0 +1,62 @@
+replace localhost to http://ec2-18-216-174-43.us-east-2.compute.amazonaws.com
+registration api 
+method :- post 
+url :- localhost:8001/api/user/registration
+data :- {name:"satish wanjari",email:"satishwanjari17@gmail.com",mobileNo:"8698687989",password:"1"}
+resposense 1 :- {
+    "message": "User already exist",
+    "status": false
+}
+resposense 2:- {
+    "message": "Registration successfully done",
+    "status": true,
+    "_id": "5f9f6d318ace4605cf7b62fe"
+}
+-------------------------------------------------------------------------------
+login api 
+method :- post 
+url :- localhost:8001/api/user/login
+data :- {username:"8698687989",password:"1"}
+resposense 1 :- {
+    "message": "Invalid data",
+    "status": false
+}
+resposense 2:- {{
+    "message": "login successfull",
+    "status": true,
+    "_id": "5f9f6d318ace4605cf7b62fe",
+    "role": "user",
+    "authenticate": false
+}
+resposense 3:-{
+    "message": "Username or password invalid",
+    "status": false
+}
+resposense 4:- {
+    "message": "OTP send successfully",
+    "status": true,
+    "authenticate": false,
+    "_id": "5fa8b1bb7579051da592a570"
+}
+-------------------------------------------------------------------------------
+resend otp 
+method :- post
+url :- localhost:8001/user/resendOTP
+data :- {id : 5fa81064c491e11c28bc6572}
+resposense :- {
+    "message": "OTP send successfully",
+    "status": true,
+    "_id": "5fa8b6a2f02a351fe57a4975"
+}
+
+-------------------------------------
+verificationsOTP 
+method :- post 
+url :- localhost:8001/user/verificationsOTP
+data :- {otpId : 5fa8b6a2f02a351fe57a4975, otp : 703079 }
+resposense :- {
+    "message": "OTP verification successful",
+    "status": true,
+    "userId": "5fa81064c491e11c28bc6571"
+}
+
